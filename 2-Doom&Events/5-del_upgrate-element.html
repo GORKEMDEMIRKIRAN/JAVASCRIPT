@@ -1,0 +1,200 @@
+
+<!-- 
+ELEMENT SİLME VE GÜNCELLEME
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>ELEMENT OLUŞTURMA</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+       rel="stylesheet"
+       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+       crossorigin="anonymous">
+     
+ 
+ </head>
+ <body>
+ 
+ 
+ 
+     <div class="container">
+         <div class="row">
+             <div class="col-12">
+ 
+                 <div class="card">
+                     <div class="card-header">
+                         Todo App
+                     </div>
+                 </div>
+ 
+                 <div class="card nt-3">
+                     <ul id="task-list" class="list-group list-group-flush">
+ 
+                         <li class="task list-group-item">
+                             <div class="form-check">
+                                 <input type="checkbox" id="1" class="form-check-input">
+                                 <label for="1" class="form-check-label">Görev 1</label>
+                             </div>
+                         </li>
+                         <li class="task list-group-item">
+                             <div class="form-check">
+                                 <input type="checkbox" id="2" class="form-check-input">
+                                 <label for="2" class="form-check-label">Görev 2</label>
+                             </div>
+                         </li>
+                         <li class="task list-group-item">
+                            <div class="form-check">
+                                <input type="checkbox" id="3" class="form-check-input">
+                                <label for="3" class="form-check-label">Görev 3</label>
+                            </div>
+                        </li>
+
+                     </ul>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+
+     <div class="container1">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        Todo App
+                    </div>
+                </div>
+
+                <div class="card nt-3">
+                    <ul id="task-list1" class="list-group list-group-flush">
+
+                        <li class="task list-group-item">
+                            <div class="form-check">
+                                <input type="checkbox" id="1" class="form-check-input">
+                                <label for="1" class="form-check-label">Görev 1</label>
+                            </div>
+                        </li>
+                        <li class="task list-group-item">
+                            <div class="form-check">
+                                <input type="checkbox" id="2" class="form-check-input">
+                                <label for="2" class="form-check-label">Görev 2</label>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+ 
+
+    
+    <script>
+        // ELEMENT OLUŞTURMA
+
+        // javascript tırmak yada ";" gibi işaretlemeleri unutsakta hata vermez.
+        // Bunu vermesini istiyorsak "use strict" yazarak aktif edebiliriz.
+        "use strict";
+
+
+        console.log("=========================");
+        let sonuc;
+
+        let ul=document.getElementById("task-list");
+
+        let count=ul.children.length;
+
+        let li=`
+                <li class="task list-group-item">
+                    <div class="form-check">
+                        <input type="checkbox" id="${count+1}" class="form-check-input">
+                        <label for="${count+1}" class="form-check-label">Görev ${count+1}</label>
+                    </div>
+                </li>`;
+
+        // Bu kısmında "insertAdjacentHTML" özelliklerine bak.
+        ul.insertAdjacentHTML("beforeend",li);
+
+        console.log(li);
+        console.log("=========================");
+
+
+    
+
+        let gorevListesi=[
+        {"id":1,"gorevAdi":"Görev 1"},
+        {"id":2,"gorevAdi":"Görev 2"},
+        {"id":3,"gorevAdi":"Görev 3"},
+        {"id":4,"gorevAdi":"Görev 4"}
+        ];
+
+        let u_list=document.getElementById("task-list1");
+        // let count=u_list.children.length;
+        for(let gorev of gorevListesi){
+            let li=`
+            <li class="task list-group-item">
+                <div class="form-check">
+                    <input type="checkbox" id="${gorev.id}" class="form-check-input">
+                    <label for="${gorev.id}" class="form-check-label">${gorev.gorevAdi}</label>
+                </div>
+            </li>`;
+        };
+        u_list.insertAdjacentHTML("beforeend",li);
+
+        // ELEMENT SİLME VE GÜNCELLEME
+
+        // Bu kısımda "task-list" elementleri siliyoruz.
+        //document.querySelector("#task-list").parentElement.remove();
+
+        // Bu kısımda seçili üyeleri silebiliyoruz.
+        // 2 farklı class isimli değerden seçili index üyelerini sildik.
+        document.querySelector("#task-list").children[0].remove();
+        document.querySelector("#task-list1").children[1].remove();
+
+        // class özelliğini kaldırdık.
+        document.querySelector("#task-list").children[1].removeAttribute("class");
+
+
+        let answer;
+        answer=document.querySelector("#task-list").children[1].getAttribute("class");
+        console.log(answer);
+
+        // class ismini "abs" olarak çevirirdik.
+        document.querySelector("#task-list1").children[0].setAttribute("class","abs");
+
+
+        let ans;
+        ans=document.querySelector("#task-list").children[1].classList;
+        console.log(ans);
+
+        // "bg-danger" eklenir ve silinir.
+        document.querySelector("#task-list").children[1].classList.add("bg-danger");
+        document.querySelector("#task-list").children[1].classList.remove("bg-danger");
+
+        // seçili elementin "bg-danger" olup olmadığını kontrol ederek "booleen" bir değer döndürür.
+        // "true" or "false" gibi
+        // burada ulaştığımız elementler üzerindeki "attribute" çalışıyoruz.
+        let an1,an2;
+        an1=document.querySelector("#task-list").children[1].classList.contains("bg-danger");
+        an2=document.querySelector("#task-list").children[1].classList.contains("bg-warning");
+
+        console.log(an1);
+        console.log(ans2);
+
+    </script>
+ 
+ 
+ 
+     
+ </body>
+ </html>

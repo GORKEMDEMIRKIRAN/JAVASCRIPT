@@ -1,0 +1,100 @@
+
+<!-- 
+Tekil element seçimini göreceğiz.
+
+Bu kısımda html sayfasında "javascript" kodu ile tekil element
+seçimi yapacağız.
+
+-->
+
+<!--
+ "live server" extension ile sağ tıkta "open with live server" tıklayarak anlık 
+olarak html sayfasını açabiliriz.
+ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tekil Element</title>
+</head>
+<body>
+    <div class="card-header">
+        <h3 class="cart-title h1" id="title">Todo App 2</h3>
+    </div>
+
+
+    <ul id="task-list">
+        <li>
+            Görev 1
+        </li>
+        <li>
+            Görev 2
+        </li>
+        <li>
+            Görev 3
+        </li>
+    </ul>
+
+
+
+
+    <script>
+        let sonuc;
+        let sonuc1;
+        let sonuc2;
+        let sonuc3;
+
+        sonuc=document.getElementById("title");
+        sonuc1=document.getElementById("title").id;
+        sonuc2=document.getElementById("title").className;
+        sonuc3=document.getElementById("title").classList;
+
+        document.getElementById("title").style.fontSize="50px";
+        document.getElementById("title").style.color="blue";
+        //document.getELementById("title").style.display="none";
+        
+        document.getElementById("title").innerText="Todo App";
+        document.getElementById("title").innerHTML="<p>Cross Validation</p>";
+
+        console.log(sonuc);
+        console.log(sonuc1);
+        console.log(sonuc2);
+        console.log(sonuc3);
+
+        let sonuc4;
+        let sonuc5;
+        let sonuc6;
+        sonuc4=document.querySelector("#title");
+        sonuc5=document.querySelector(".cart-title");
+        sonuc6=document.querySelector("div");
+
+        console.log(sonuc4);
+        console.log(sonuc5);
+        console.log(sonuc6);
+        
+
+        let sonuc7;
+        let sonuc8;
+        let sonuc9;
+        let sonuc10;
+
+        sonuc7=document.querySelector("li");
+        // "li" ilk elemanına erişmemizi sağlıyor.
+        sonuc8=document.querySelector("li:first-child");
+        sonuc9=document.querySelector("li:last-child");
+        // nth(nt child) aracı ile istediğimiz sıradakini alabiliriz.
+        sonuc10=document.querySelector("li:nth-child(2)");
+
+        console.log(sonuc7);
+        console.log(sonuc8);
+        console.log(sonuc9);
+        console.log(sonuc10);
+    </script>
+
+
+    
+</body>
+</html>

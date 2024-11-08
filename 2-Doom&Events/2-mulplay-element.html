@@ -1,0 +1,87 @@
+
+
+<!-- 
+
+ Bu kısımda çoklu element seçimini göreceğiz.
+Bu çoklu element seçiminde listeler tablolar gibi çoklu elementleri seçebiliyoruz.
+
+ -->
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çoklu Element</title>
+</head>
+<body>
+    <div class="card-header">
+        <h3 class="cart-title h1" id="title">Todo App 2</h3>
+    </div>
+
+    <ul id="task-list">
+        <li class="tast">Görev 1</li>
+        <li class="tast">Görev 2</li>
+        <li class="tast"> Görev 3</li>
+    </ul>
+    <ul id="task-list2">
+        <li class="tast">Görev 1</li>
+        <li class="tast">Görev 2</li>
+        <li class="tast"> Görev 3</li>
+    </ul>
+
+
+
+    <script>
+        let sonuc1;
+        let sonuc2;
+        let tasklist;
+        let tasklist1;
+        let tasklist2;
+
+        sonuc1=document.getElementsByClassName("tast")[0];
+        sonuc2=document.getElementsByClassName("tast")[1];
+
+
+        tasklist=document.getElementsByClassName("tast");
+
+
+        ul=document.getElementById("task-list");
+        tasklist1=ul.getElementsByTagName("li");
+
+
+        tasklist2=document.querySelectorAll("#task-list li");
+
+
+        console.log(sonuc1);
+        console.log("=====================");
+        console.log(sonuc2);
+        console.log("=====================");
+        console.log(tasklist);
+        console.log("=====================");
+        console.log(tasklist1);
+        console.log("=====================");
+        console.log(tasklist2);
+
+        console.log("=====================");
+        for(let i=0;i<tasklist.length;i++){
+            console.log(tasklist[i]);
+        }
+        console.log("=====================");
+        
+        // style değişiklikleri sadece bu tür for döngüsünde oluyor.
+        for(let task of tasklist){
+            task.style.color="red";
+            task.style.fontSize="20px";
+            task.innerText="Item";
+        }
+
+
+
+
+    </script>
+
+
+    
+</body>
+</html>

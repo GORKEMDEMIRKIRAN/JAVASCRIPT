@@ -1,0 +1,159 @@
+
+
+
+<!-- DOM ELEMENTLERİ ÜZERİNDE GEZİNME -->
+
+<!-- 
+DOM = Document Object Model
+
+web sayfalarının yapısını temsil etmektedir.
+Aynı zamanda bir programlama arayüzü olarak görünüyor.
+DOM içerisinde web sayfalarının her türlü bileşeni kullanılıyor. 
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+     rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+       crossorigin="anonymous">
+    
+
+</head>
+<body>
+
+
+
+
+
+    <div class="card-header">
+        <h3 class="cart-title h1" id="title">Todo App 2</h3>
+    </div>
+
+    <ul id="task-list">
+        <li class="tast">Görev</li>
+        <li class="tast">Statü</li>
+        <li class="tast"> Konum</li>
+        <li class="tast">Uygulama</li>
+    </ul>
+
+
+    <script>
+        let sonuc1;
+        let sonuc2;
+        let sonuc3;
+        let sonuc4;
+        let sonuc5;
+        let sonuc6;
+        let sonuc7;
+
+
+        ul=document.getElementById("task-list");
+        // children, firstElementChild, lastElementChild
+        // parentElement
+        // nextElementSibling , previousElementSiling
+        sonuc1=ul.children;
+        sonuc2=ul.children[2];
+        sonuc3=ul.firstElementChild;
+        sonuc4=ul.lastElementChild;
+
+        // "title" id sahip olanın elementlerini aldı.
+        sonuc5=document.getElementById("title").parentElement;
+        // "nextelementsibling" "tast" ifadesine sahip sınıfın sonraki elementini alır.
+        sonuc6=document.querySelector(".tast").nextElementSibling;
+        // Bu şekilde arka arkaya yapabiliriz.
+        sonuc7=document.querySelector(".tast").nextElementSibling.nextElementSibling.previousElementSibling;
+
+
+
+        console.log(sonuc1);
+        console.log(sonuc2);
+        console.log(sonuc3);
+        console.log(sonuc4);
+        console.log(sonuc5);
+        console.log(sonuc6);
+    </script>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        Todo App
+                    </div>
+                </div>
+
+                <div class="card nt-3">
+                    <ul id="task-list1" class="list-group list-group-flush">
+
+                        <li class="task list-group-item">
+                            <div class="form-check">
+                                <input type="checkbox" id="1" class="form-check-input">
+                                <label for="1" class="form-check-label">Görev 1</label>
+                            </div>
+                        </li>
+                        <li class="task list-group-item">
+                            <div class="form-check">
+                                <input type="checkbox" id="2" class="form-check-input">
+                                <label for="2" class="form-check-label">Görev 2</label>
+                            </div>
+                        </li>
+                        <li class="task list-group-item">
+                            <div class="form-check">
+                                <input type="checkbox" id="3" class="form-check-input">
+                                <label for="3" class="form-check-label">Görev 3</label>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        console.log("=======================");
+
+        let answer1;
+        let answer2;
+        let answer3;
+        let answer4;
+
+
+        cl=document.getElementById("task-list1");
+
+        answer1=cl.children;
+        answer2=cl.children[1];
+        //cl.children[0].children[0].checked   "checkbox" aldığımda seçilmemiş "false" gelir.
+        // Bu şekilde "true" yaptık mı aktif hale gelir.
+        // Bu şekilde birinci eleman seçilir.
+        cl.children[0].children[0].children[0].checked=true;
+        // Bu şekilde ikinci eleman seçilir.
+        cl.children[0].nextElementSibling.children[0].children[0].checked=true;
+
+
+
+        console.log(answer1);
+        console.log(answer2);
+
+        console.log("=======================");
+
+    </script>
+
+
+
+    
+</body>
+</html>
+
+
